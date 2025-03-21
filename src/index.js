@@ -26,11 +26,7 @@ function createTable() {
                         <td>${flight.id}</td>
                         <td>
                             <div class="plane-info">
-<<<<<<< HEAD
                                 <img src="./img/airplane.png" alt="plane-${flight.id}" class="plane-img">
-=======
-                                <img src="./../planning/screenshot.jpg" alt="plane-${flight.id}" class="plane-img">
->>>>>>> c0372443db4d14237458459ecfcdb0cc9d23cd8e
                                 <span>${flight.plane}</span>
                             </div>
                         </td>
