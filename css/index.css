@@ -1,12 +1,128 @@
-*,
-*::before,
-*::after {
+/* index.css */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #565454;
+    background: url('https://sotni.ru/wp-content/uploads/2023/08/samolet-5.webp')
+        no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #333;
 }
+
+.container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.sky-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 120, 255, 0.2);
+    z-index: 1;
+}
+
+.flight-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(255, 255, 255, 72%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 1vw;
+}
+
+.flight-table thead th {
+    background: #1e49ff5c;
+    color: white;
+    padding: 1vw;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+}
+
+.flight-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.flight-table tbody tr:hover {
+    background: rgb(255 255 255 / 72%);
+    transform: scale(1.02);
+}
+
+.flight-table td {
+    padding: 1vw;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.plane-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plane-img {
+    width: 26px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.plane-img:hover {
+    transform: scale(1.1);
+}
+
+.flight-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive design */
+/* @media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    
+    .flight-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .plane-img {
+        width: 40px;
+        height: 30px;
+    }
+} */
