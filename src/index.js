@@ -1,11 +1,11 @@
-import data from './data.js';
-import sortData from './utils/sortData.js';
+import data from "./data.js";
+import sortData from "./utils/sortData.js";
 
-const tableContainer = document.getElementById('tableContainer');
+const tableContainer = document.getElementById("tableContainer");
 const newData = sortData(data.flights);
 
 function createTable() {
-    const tableHTML = `
+  const tableHTML = `
         <table class="flight-table">
             <thead>
                 <tr>
@@ -20,15 +20,12 @@ function createTable() {
             </thead>
             <tbody>
                 ${newData
-                    .map(
-                        (flight) => `
+                  .map(
+                    (flight) => `
                     <tr>
                         <td>${flight.id}</td>
                         <td>
-                            <div class="plane-info">
-                                <img src="./../src/img/plane.png" alt="plane-${flight.id}" class="plane-img" />
-                                <span>${flight.plane}</span>
-                            </div>
+${flight.plane}
                         </td>
                         <td>${flight.departureDate}</td>
                         <td>${flight.origin}</td>
@@ -37,12 +34,12 @@ function createTable() {
                         <td>${flight.stops}</td>
                     </tr>
                 `
-                    )
-                    .join('')}
+                  )
+                  .join("")}
             </tbody>
         </table>
     `;
-    tableContainer.innerHTML = tableHTML;
+  tableContainer.innerHTML = tableHTML;
 }
 
 createTable();
