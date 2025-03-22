@@ -1,11 +1,30 @@
+
 import data from "./data.js";
 import sortData from "./utils/sortData.js";
 
 const tableContainer = document.getElementById("tableContainer");
+const toggle = document.getElementById('toggle');
+const valueDisplay = document.getElementById('value');
 const newData = sortData(data.flights);
 
-function createTable() {
-  const tableHTML = `
+document.addEventListener('DOMContentLoaded', function() {
+    createTable(newData);
+
+    toggle.addEventListener('change', function() {
+        const switcher = this.checked;
+
+        if (switcher) {
+            createTable([...newData].reverse());
+            valueDisplay.textContent = 'Switch to early flights';
+        } else {
+            createTable(newData);
+            valueDisplay.textContent = 'Switch to latest flights';
+        }
+    });
+});
+
+function createTable(departures) {
+    const tableHTML = `
         <table class="flight-table">
             <thead>
                 <tr>
@@ -19,14 +38,12 @@ function createTable() {
                 </tr>
             </thead>
             <tbody>
-                ${newData
+                ${departures
                   .map(
                     (flight) => `
                     <tr>
                         <td>${flight.id}</td>
-                        <td>
-${flight.plane}
-                        </td>
+                        <td>${flight.plane}</td>
                         <td>${flight.departureDate}</td>
                         <td>${flight.origin}</td>
                         <td>${flight.arrivalDate}</td>
@@ -39,7 +56,5 @@ ${flight.plane}
             </tbody>
         </table>
     `;
-  tableContainer.innerHTML = tableHTML;
+    tableContainer.innerHTML = tableHTML;
 }
-
-createTable();
