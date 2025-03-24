@@ -6,11 +6,9 @@
  */
 
 const sortData = (arr = []) => {
-    const flights = [...arr]
-        .sort((a, b) => {
-            return new Date(b.departureDate) - new Date(a.departureDate);
-        })
-        .reverse();
+    const flights = [...arr].sort((a, b) => {
+        return new Date(a.departureDate) - new Date(b.departureDate);
+    });
 
     return flights;
 };
